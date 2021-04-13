@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="en">
 {% load staticfiles %}
+<html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>Monis project</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -58,7 +59,7 @@
             <div class="navbar-nav ms-auto">
               <a class="nav-link" href="https://twitter.com/Monisah67589578">Twitter</a>
               <a class="nav-link" href="{% static 'pdf_resume.pdf' %}">Resume</a>
-              <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+              <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
             </div>
           </div>
@@ -66,43 +67,19 @@
       </nav>
     </header>
 
-<main>
+    <main>
+      <div class="container">
+     <h1 class="text-center pt-3">{{ blog.title }}</h1>
+     <p class="text-center">{{ blog.pub_date_pretty }}</p>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi, I'am Monis.</h1>
-        <p class="lead text-muted">hello iam Monis and i like to make cool software,robots,gizmos,and websites  and i like to show case it to everyone  </p>
-        <p>
-          <a href="mailto:munis002@gmail.com" class="btn btn-primary my-2">Email me</a>
-        </p>
-        <img src="{% static 'hippephase.jpg' %}" height=315 width=300/>
-      </div>
-    </div>
-  </section>
+     <img class="img-fluid" src="{{ blog.image.url }}" />
+     <br />
+     <br />
+     <p>{{ blog.body}}</p>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-      {% for job in jobs.all %}
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"  width="310" height="253" />
-
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
   </div>
-</div>
-
 </main>
 
 <footer class="text-muted py-5">
